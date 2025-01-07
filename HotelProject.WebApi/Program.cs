@@ -7,8 +7,31 @@ using HotelProject.DataAccessLayer.EntityFramework;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IStaffDal, EfStaffDal>();
-builder.Services.AddScoped<IStaffService , StaffManager>(); 
+builder.Services.AddScoped<IStaffService , StaffManager>();
+
+builder.Services.AddScoped<IServiceDal, EfServiceDal>();
+builder.Services.AddScoped<IServiceService, ServiceManager>();
+
+builder.Services.AddScoped<IRoomDal, EfRoomDal>();
+builder.Services.AddScoped<IRoomService, RoomManager>();
+
+builder.Services.AddScoped<ISubscribeDal, EfSubscribeDal>();
+builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
+
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("OtelApiCors", opts =>
+    {
+
+        opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 builder.Services.AddDbContext<HotelContext>();
+
 
 
 builder.Services.AddControllers();
@@ -25,6 +48,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("OtelApiCors");
 app.UseAuthorization();
 
 app.MapControllers();

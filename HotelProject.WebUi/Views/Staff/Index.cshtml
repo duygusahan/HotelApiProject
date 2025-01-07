@@ -1,0 +1,39 @@
+﻿@model List<StaffViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- End Row -->
+    <div class="row">
+        <div class="col-12 m-b-30">
+            <h4 class="d-inline">Çalışanlarımız</h4>
+            <p class="text-muted">Birbirinden yetenekli ekip üyelerimiz</p>
+            <div class="row">
+                @foreach(var item in Model){
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <img class="img-fluid" src="@item.ImageUrl" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <p class="card-text">@item.Title</p>
+                                <div class="disabled-button">
+                                    <button type="button" class="btn mb-1 btn-rounded btn-danger" disabled="disabled">Sil</button>
+                                    <button type="button" class="btn mb-1 btn-rounded btn-success" disabled="disabled">Güncelle</button>
+                                    <button type="button" class="btn mb-1 btn-rounded btn-primary" disabled="disabled">Detaylar</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+               
+                
+            </div>
+        </div>
+    </div>
+    <!-- End Row -->
+   
+</div>
+
