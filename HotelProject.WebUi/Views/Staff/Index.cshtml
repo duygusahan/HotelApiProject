@@ -19,9 +19,10 @@
                                 <h5 class="card-title">@item.Name</h5>
                                 <p class="card-text">@item.Title</p>
                                 <div class="disabled-button">
-                                    <button type="button" class="btn mb-1 btn-rounded btn-danger" disabled="disabled">Sil</button>
-                                    <button type="button" class="btn mb-1 btn-rounded btn-success" disabled="disabled">Güncelle</button>
-                                    <button type="button" class="btn mb-1 btn-rounded btn-primary" disabled="disabled">Detaylar</button>
+                                    <a href="/Staff/DeleteStaff/@item.StaffId" class="btn mb-1 btn-outline-danger" disabled="disabled">Sil</a>
+                                    <a href="/Staff/UpdateStaff/@item.StaffId" class="btn mb-1 btn-outline-success" disabled="disabled">Güncelle</a>
+                                    <a href="/Staff/StaffDetail/@item.StaffId" class="btn mb-1 btn-outline-info" disabled="disabled">Detaylar</a>
+                                    
                                     
                                 </div>
                             </div>
@@ -31,6 +32,8 @@
                
                 
             </div>
+            <a class="btn mb-1 btn-outline-primary" href="/Staff/CreateStaff" disabled="disabled">Ekle</a>
+
         </div>
     </div>
     <!-- End Row -->

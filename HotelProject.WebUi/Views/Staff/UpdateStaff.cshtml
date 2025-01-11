@@ -1,6 +1,6 @@
-﻿@model CreateStaffViewModel
+﻿@model UpdateStaffViewModel
 @{
-    ViewData["Title"] = "CreateStaff";
+    ViewData["Title"] = "UpdateStaff";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
@@ -13,6 +13,7 @@
             <div class="basic-form">
                 <form method="post">
                     <div class="form-row">
+                        <input type="hidden" asp-for="StaffId"/>
                         <div class="form-group col-md-6">
                             <label>Personel Adı</label>
                             <input type="text" asp-for="Name" class="form-control" placeholder="Personel Adını Yazınız">
